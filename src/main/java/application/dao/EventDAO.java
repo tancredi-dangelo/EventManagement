@@ -15,7 +15,7 @@ public class EventDAO {
 
     // constructor
     public EventDAO() {
-        this.emf = Persistence.createEntityManagerFactory("event_manager");
+        this.emf = Persistence.createEntityManagerFactory("event_management");
     }
 
     // save event
@@ -96,6 +96,5 @@ public class EventDAO {
     public void close() {
         emf.close();
     }
-
 
 }
