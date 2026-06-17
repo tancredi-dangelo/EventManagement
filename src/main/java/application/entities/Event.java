@@ -12,11 +12,12 @@ import java.util.UUID;
 public class Event {
 
     // attributes = columns
-    @Id @GeneratedValue(strategy = GenerationType.UUID) UUID id;
+    private @Id @GeneratedValue(strategy = GenerationType.UUID) @OneToOne UUID id;
     private String title;
     private LocalDate date;
+    private String location;
     private String description;
-    @Enumerated(EnumType.STRING) private TypeOfEvent typeOfEvent;
+    private @Enumerated(EnumType.STRING) TypeOfEvent typeOfEvent;
     private int maxNumParticipants;
 
     // constructor
@@ -24,10 +25,11 @@ public class Event {
     }
 
     // constructor
-    public Event(UUID id, String title, LocalDate date, String description, TypeOfEvent typeOfEvent, int maxNumParticipants) {
+    public Event(UUID id, String title, LocalDate date, String location, String description, TypeOfEvent typeOfEvent, int maxNumParticipants) {
         this.id = id;
         this.title = title;
         this.date = date;
+        this.location = location;
         this.description = description;
         this.typeOfEvent = typeOfEvent;
         this.maxNumParticipants = maxNumParticipants;
@@ -44,6 +46,7 @@ public class Event {
     public LocalDate getDate() {
         return date;
     }
+    public String getLocation() {return location;}
     public String getDescription() {
         return description;
     }
@@ -66,6 +69,7 @@ public class Event {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+    public void setLocation(String location) { this.location = location; }
     public void setDescription(String description) {
         this.description = description;
     }

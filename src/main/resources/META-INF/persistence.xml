@@ -7,7 +7,12 @@
 
     <persistence-unit name="event_management" transaction-type="RESOURCE_LOCAL">
 
+        <!-- classes -->
         <class>application.entities.Event</class>
+        <class>application.entities.Person</class>
+        <class>application.entities.Participation</class>
+        <class>application.entities.Location</class>
+
 
         <properties>
             <!-- PostgreSQL -->

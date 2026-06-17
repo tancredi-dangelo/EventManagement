@@ -1,11 +1,13 @@
 package application.dao;
 
 import application.entities.Event;
+import application.entities.Location;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
+import java.util.List;
 import java.util.UUID;
 
 public class EventDAO {
@@ -58,6 +60,16 @@ public class EventDAO {
             return null;
         } finally {
             em.close();
+        }
+    }
+
+    // find event by location
+    public List<Event> findEventsByLocation(Location location) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.find(Event.class, location);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
